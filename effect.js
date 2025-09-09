@@ -207,17 +207,8 @@ $('document').ready(function () {
 
 	$('#story').click(function () {
 		$(this).fadeOut('slow');
-
-		// Giữ bánh hiển thị và đẩy message xuống dưới
-		$('.cake').css('display', 'block');
-		$('.message').css({
-			position: 'relative',
-			top: '0px',
-			opacity: 0
-		}).animate({
-			top: '50px', // Di chuyển xuống dưới bánh
-			opacity: 1
-		}, 'slow');
+		$('.cake').fadeIn('slow');
+		$('.message').fadeIn('slow');
 
 		let i = 0;
 		function msgLoop(i) {
