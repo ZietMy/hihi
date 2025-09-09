@@ -26,7 +26,7 @@ $('document').ready(function () {
 		$('#bulb_pink').addClass('bulb-glow-pink');
 		$('#bulb_orange').addClass('bulb-glow-orange');
 		$('body').addClass('peach');
-		$(this).fadeOut('slow').delay(5000).promise().done(function () {
+		$(this).fadeOut('slow').delay(3000).promise().done(function () {
 			$('#play').fadeIn('slow');
 		});
 	});
@@ -41,14 +41,14 @@ $('document').ready(function () {
 		$('#bulb_orange').addClass('bulb-glow-orange-after');
 		$('body').css('backgroud-color', '#FFF');
 		$('body').addClass('peach-after');
-		$(this).fadeOut('slow').delay(6000).promise().done(function () {
+		$(this).fadeOut('slow').delay(4000).promise().done(function () {
 			$('#bannar_coming').fadeIn('slow');
 		});
 	});
 
 	$('#bannar_coming').click(function () {
 		$('.bannar').addClass('bannar-come');
-		$(this).fadeOut('slow').delay(6000).promise().done(function () {
+		$(this).fadeOut('slow').delay(4000).promise().done(function () {
 			$('#balloons_flying').fadeIn('slow');
 		});
 	});
@@ -157,33 +157,52 @@ $('document').ready(function () {
 
 
 	$('#wish_message').click(function () {
-		vw = $(window).width() / 2;
+    vw = $(window).width(); // Lấy chiều rộng hiện tại của cửa sổ
 
-		$('#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9').stop();
-		$('#b1').attr('id', 'b11');
-		$('#b2').attr('id', 'b22')
-		$('#b3').attr('id', 'b33')
-		$('#b4').attr('id', 'b44')
-		$('#b5').attr('id', 'b55')
-		$('#b6').attr('id', 'b66')
-		$('#b7').attr('id', 'b77')
-		$('#b8').attr('id','b88')
-        $('#b9').attr('id','b99');
-		$('#b11').animate({top:240, left: vw-450},500); 
-        $('#b22').animate({top:240, left: vw-350},500);
-        $('#b33').animate({top:240, left: vw-250},500);
-        $('#b44').animate({top:240, left: vw-150},500);
-        $('#b55').animate({top:240, left: vw-50},500);
-        $('#b66').animate({top:240, left: vw+50},500);
-        $('#b77').animate({top:240, left: vw+150},500);
-        $('#b88').animate({top:240, left: vw+250},500); 
-        $('#b99').animate({top:240, left: vw+350},500); 
-		$('.balloons').css('opacity', '0.9');
-		$('.balloons h2').fadeIn(3000);
-		$(this).fadeOut('slow').delay(3000).promise().done(function () {
-			$('#story').fadeIn('slow');
-		});
-	});
+    $('#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9').stop();
+    $('#b1').attr('id', 'b11');
+    $('#b2').attr('id', 'b22');
+    $('#b3').attr('id', 'b33');
+    $('#b4').attr('id', 'b44');
+    $('#b5').attr('id', 'b55');
+    $('#b6').attr('id', 'b66');
+    $('#b7').attr('id', 'b77');
+    $('#b8').attr('id','b88');
+    $('#b9').attr('id','b99');
+    
+    if (vw <= 768) { // Điều chỉnh kích thước này để khớp với Media Query của bạn
+        // Bố cục cho điện thoại (2 hàng)
+        // Hàng trên: b11, b22, b33, b44
+        $('#b11').animate({top: 100, left: vw * 0.1}, 500); 
+        $('#b22').animate({top: 100, left: vw * 0.3}, 500);
+        $('#b33').animate({top: 100, left: vw * 0.5}, 500);
+        $('#b44').animate({top: 100, left: vw * 0.7}, 500);
+
+        // Hàng dưới: b55, b66, b77, b88, b99
+        $('#b55').animate({top: 160, left: vw * 0.05}, 500); // Điều chỉnh vị trí Y để tạo hàng thứ 2
+        $('#b66').animate({top: 160, left: vw * 0.25}, 500);
+        $('#b77').animate({top: 160, left: vw * 0.45}, 500);
+        $('#b88').animate({top: 160, left: vw * 0.65}, 500); 
+        $('#b99').animate({top: 160, left: vw * 0.85}, 500); 
+    } else {
+        // Bố cục cho màn hình lớn (1 hàng)
+        $('#b11').animate({top:240, left: vw/2 - 450},500); 
+        $('#b22').animate({top:240, left: vw/2 - 350},500);
+        $('#b33').animate({top:240, left: vw/2 - 250},500);
+        $('#b44').animate({top:240, left: vw/2 - 150},500);
+        $('#b55').animate({top:240, left: vw/2 - 50},500);
+        $('#b66').animate({top:240, left: vw/2 + 50},500);
+        $('#b77').animate({top:240, left: vw/2 + 150},500);
+        $('#b88').animate({top:240, left: vw/2 + 250},500); 
+        $('#b99').animate({top:240, left: vw/2 + 350},500); 
+    }
+
+    $('.balloons').css('opacity', '0.9');
+    $('.balloons h2').fadeIn(3000);
+    $(this).fadeOut('slow').delay(3000).promise().done(function () {
+        $('#story').fadeIn('slow');
+    });
+});
 
 	$('#story').click(function () {
 		$(this).fadeOut('slow');
