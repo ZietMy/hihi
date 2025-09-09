@@ -1553,9 +1553,9 @@ o @keyframes bannar_come {
 
 .message {
 	display: none;
-	bottom : 15rem;
+	top : 45rem;
 	text-align: center !important;
-	position: fixed;
+	position: relative;
 }
 
 .message p {
