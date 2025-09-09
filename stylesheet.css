@@ -14,7 +14,7 @@ body {
 }
 
 .peach {
-	background-color: #FFDAB9;
+	background-color: #f2e0d0;
 
 }
 
@@ -1559,11 +1559,11 @@ o @keyframes bannar_come {
 .message p {
 	font-family: 'Signika', sans-serif;
 	font-size: 30px;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	color: #C4515C;
 	text-shadow: 2px 2px 2px #FFF;
 	display: none;
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 
 .btn-primary {
@@ -1617,4 +1617,5 @@ o @keyframes bannar_come {
 		text-shadow: 5px 5px 5px #FFF;
 		display: none;
 	}
+
 }

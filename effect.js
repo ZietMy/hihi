@@ -7,7 +7,7 @@ $('document').ready(function () {
 	$(window).resize(function () {
 		vw = $(window).width() / 2;
 		$('#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9').stop();
-		$('#b11').animate({ top: 240, left: vw - 450 }, 500); 
+		$('#b11').animate({ top: 240, left: vw - 450 }, 500);
 		$('#b22').animate({ top: 240, left: vw - 350 }, 500);
 		$('#b33').animate({ top: 240, left: vw - 250 }, 500);
 		$('#b44').animate({ top: 240, left: vw - 150 }, 500);
@@ -33,6 +33,7 @@ $('document').ready(function () {
 	$('#play').click(function () {
 		var audio = $('.song')[0];
 		audio.play();
+		audio.volume = 0.1;
 		$('#bulb_yellow').addClass('bulb-glow-yellow-after');
 		$('#bulb_red').addClass('bulb-glow-red-after');
 		$('#bulb_blue').addClass('bulb-glow-blue-after');
@@ -41,7 +42,7 @@ $('document').ready(function () {
 		$('#bulb_orange').addClass('bulb-glow-orange-after');
 		$('body').css('backgroud-color', '#FFF');
 		$('body').addClass('peach-after');
-		$(this).fadeOut('slow').delay(4000).promise().done(function () {
+		$(this).fadeOut('slow').delay(2000).promise().done(function () {
 			$('#bannar_coming').fadeIn('slow');
 		});
 	});
@@ -104,19 +105,19 @@ $('document').ready(function () {
 		});
 	}
 	function loopEight() {
-        var randleft = 1000*Math.random();
-        var randtop = 500*Math.random();
-        $('#b8').animate({left:randleft,bottom:randtop},10000,function(){
-            loopEight();
-        });
-    }
-    function loopNine() {
-        var randleft = 1000*Math.random();
-        var randtop = 500*Math.random();
-        $('#b9').animate({left:randleft,bottom:randtop},10000,function(){
-            loopNine();
-        });
-    }
+		var randleft = 1000 * Math.random();
+		var randtop = 500 * Math.random();
+		$('#b8').animate({ left: randleft, bottom: randtop }, 10000, function () {
+			loopEight();
+		});
+	}
+	function loopNine() {
+		var randleft = 1000 * Math.random();
+		var randtop = 500 * Math.random();
+		$('#b9').animate({ left: randleft, bottom: randtop }, 10000, function () {
+			loopNine();
+		});
+	}
 	$('#balloons_flying').click(function () {
 		$('.balloon-border').animate({ top: -500 }, 8000);
 		$('#b1,#b4,#b5,#b7,#b8').addClass('balloons-rotate-behaviour-one');
@@ -134,7 +135,7 @@ $('document').ready(function () {
 		loopSix();
 		loopSeven();
 		loopEight();
-        loopNine();
+		loopNine();
 
 		$(this).fadeOut('slow').delay(5000).promise().done(function () {
 			$('#cake_fadein').fadeIn('slow');
@@ -143,7 +144,7 @@ $('document').ready(function () {
 
 	$('#cake_fadein').click(function () {
 		$('.cake').fadeIn('slow');
-		$(this).fadeOut('slow').delay(3000).promise().done(function () {
+		$(this).fadeOut('slow').delay(2000).promise().done(function () {
 			$('#light_candle').fadeIn('slow');
 		});
 	});
@@ -157,82 +158,119 @@ $('document').ready(function () {
 
 
 	$('#wish_message').click(function () {
-    vw = $(window).width(); // Lấy chiều rộng hiện tại của cửa sổ
+		vw = $(window).width(); // Lấy chiều rộng hiện tại của cửa sổ
 
-    $('#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9').stop();
-    $('#b1').attr('id', 'b11');
-    $('#b2').attr('id', 'b22');
-    $('#b3').attr('id', 'b33');
-    $('#b4').attr('id', 'b44');
-    $('#b5').attr('id', 'b55');
-    $('#b6').attr('id', 'b66');
-    $('#b7').attr('id', 'b77');
-    $('#b8').attr('id','b88');
-    $('#b9').attr('id','b99');
-    
-    if (vw <= 768) { 
-        // Bố cục cho điện thoại (2 hàng)
-        // Hàng trên: b11, b22, b33, b44
-        $('#b11').animate({top: 180, left: vw * 0.1}, 500); 
-        $('#b22').animate({top: 180, left: vw * 0.3}, 500);
-        $('#b33').animate({top: 180, left: vw * 0.5}, 500);
-        $('#b44').animate({top: 180, left: vw * 0.7}, 500);
+		$('#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9').stop();
+		$('#b1').attr('id', 'b11');
+		$('#b2').attr('id', 'b22');
+		$('#b3').attr('id', 'b33');
+		$('#b4').attr('id', 'b44');
+		$('#b5').attr('id', 'b55');
+		$('#b6').attr('id', 'b66');
+		$('#b7').attr('id', 'b77');
+		$('#b8').attr('id', 'b88');
+		$('#b9').attr('id', 'b99');
 
-        // Hàng dưới: b55, b66, b77, b88, b99
-        $('#b55').animate({top: 240, left: vw * 0.05}, 500); // Điều chỉnh vị trí Y để tạo hàng thứ 2
-        $('#b66').animate({top: 240, left: vw * 0.25}, 500);
-        $('#b77').animate({top: 240, left: vw * 0.45}, 500);
-        $('#b88').animate({top: 240, left: vw * 0.65}, 500); 
-        $('#b99').animate({top: 240, left: vw * 0.85}, 500); 
-    } else {
-        // Bố cục cho màn hình lớn (1 hàng)
-        $('#b11').animate({top:240, left: vw/2 - 450},500); 
-        $('#b22').animate({top:240, left: vw/2 - 350},500);
-        $('#b33').animate({top:240, left: vw/2 - 250},500);
-        $('#b44').animate({top:240, left: vw/2 - 150},500);
-        $('#b55').animate({top:240, left: vw/2 - 50},500);
-        $('#b66').animate({top:240, left: vw/2 + 50},500);
-        $('#b77').animate({top:240, left: vw/2 + 150},500);
-        $('#b88').animate({top:240, left: vw/2 + 250},500); 
-        $('#b99').animate({top:240, left: vw/2 + 350},500); 
-    }
+		if (vw <= 768) {
+			// Bố cục cho điện thoại (2 hàng)
+			// Hàng trên: b11, b22, b33, b44
+			$('#b11').animate({ top: 180, left: vw * 0.1 }, 500);
+			$('#b22').animate({ top: 180, left: vw * 0.3 }, 500);
+			$('#b33').animate({ top: 180, left: vw * 0.5 }, 500);
+			$('#b44').animate({ top: 180, left: vw * 0.7 }, 500);
 
-    $('.balloons').css('opacity', '0.9');
-    $('.balloons h2').fadeIn(3000);
-    $(this).fadeOut('slow').delay(3000).promise().done(function () {
-        $('#story').fadeIn('slow');
-    });
-});
+			// Hàng dưới: b55, b66, b77, b88, b99
+			$('#b55').animate({ top: 240, left: vw * 0.05 }, 500); // Điều chỉnh vị trí Y để tạo hàng thứ 2
+			$('#b66').animate({ top: 240, left: vw * 0.25 }, 500);
+			$('#b77').animate({ top: 240, left: vw * 0.45 }, 500);
+			$('#b88').animate({ top: 240, left: vw * 0.65 }, 500);
+			$('#b99').animate({ top: 240, left: vw * 0.85 }, 500);
+		} else {
+			// Bố cục cho màn hình lớn (1 hàng)
+			$('#b11').animate({ top: 240, left: vw / 2 - 450 }, 500);
+			$('#b22').animate({ top: 240, left: vw / 2 - 350 }, 500);
+			$('#b33').animate({ top: 240, left: vw / 2 - 250 }, 500);
+			$('#b44').animate({ top: 240, left: vw / 2 - 150 }, 500);
+			$('#b55').animate({ top: 240, left: vw / 2 - 50 }, 500);
+			$('#b66').animate({ top: 240, left: vw / 2 + 50 }, 500);
+			$('#b77').animate({ top: 240, left: vw / 2 + 150 }, 500);
+			$('#b88').animate({ top: 240, left: vw / 2 + 250 }, 500);
+			$('#b99').animate({ top: 240, left: vw / 2 + 350 }, 500);
+		}
+
+		$('.balloons').css('opacity', '0.9');
+		$('.balloons h2').fadeIn(3000);
+		$(this).fadeOut('slow').delay(3000).promise().done(function () {
+			$('#story').fadeIn('slow');
+		});
+	});
 
 	$('#story').click(function () {
 		$(this).fadeOut('slow');
-		$('.cake').fadeOut('fast').promise().done(function () {
-			$('.message').fadeIn('slow');
-		});
 
-		var i;
+		// Giữ bánh hiển thị và đẩy message xuống dưới
+		$('.cake').css('display', 'block');
+		$('.message').css({
+			position: 'relative',
+			top: '0px',
+			opacity: 0
+		}).animate({
+			top: '50px', // Di chuyển xuống dưới bánh
+			opacity: 1
+		}, 'slow');
 
+		let i = 0;
 		function msgLoop(i) {
-			$("p:nth-child(" + i + ")").fadeOut('slow').delay(800).promise().done(function () {
-				i = i + 1;
-				$("p:nth-child(" + i + ")").fadeIn('slow').delay(1000);
-				if (i == 50) {
-					$("p:nth-child(49)").fadeOut('slow').promise().done(function () {
-						$('.cake').fadeIn('fast');
-					});
+			$("p:nth-child(" + i + ")")
+				.fadeOut('slow')
+				.delay(800)
+				.promise()
+				.done(function () {
+					i = i + 1;
+					$("p:nth-child(" + i + ")").fadeIn('slow').delay(1000);
 
-				}
-				else {
-					msgLoop(i);
-				}
-
-			});
-			// body...
+					if (i < $("p").length) {
+						msgLoop(i);
+					} else {
+						// 🎂 Thổi nến (tắt lửa nhưng bánh vẫn còn)
+						$('.fuego').fadeOut('slow').promise().done(function () {
+							// 🎆 Nổ pháo bông
+							fireworks();
+						});
+					}
+				});
 		}
-
 		msgLoop(0);
-
 	});
+
+
+	// 🎆 Pháo bông
+	function fireworks() {
+		var duration = 5 * 1000;
+		var end = Date.now() + duration;
+		// ⏹️ Tắt nhạc
+		var audio = $('.song')[0];
+		if (audio) {
+			audio.pause();
+			// audio.currentTime = 0; // reset về đầu
+		}
+		(function frame() {
+			confetti({
+				particleCount: 5,
+				angle: 60,
+				spread: 55,
+				origin: { x: 0 }
+			});
+			confetti({
+				particleCount: 5,
+				angle: 120,
+				spread: 55,
+				origin: { x: 1 }
+			});
+			if (Date.now() < end) requestAnimationFrame(frame);
+		})();
+	}
+
 });
 
 
