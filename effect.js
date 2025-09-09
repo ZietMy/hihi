@@ -170,20 +170,20 @@ $('document').ready(function () {
     $('#b8').attr('id','b88');
     $('#b9').attr('id','b99');
     
-    if (vw <= 768) { // Điều chỉnh kích thước này để khớp với Media Query của bạn
+    if (vw <= 768) { 
         // Bố cục cho điện thoại (2 hàng)
         // Hàng trên: b11, b22, b33, b44
-        $('#b11').animate({top: 100, left: vw * 0.1}, 500); 
-        $('#b22').animate({top: 100, left: vw * 0.3}, 500);
-        $('#b33').animate({top: 100, left: vw * 0.5}, 500);
-        $('#b44').animate({top: 100, left: vw * 0.7}, 500);
+        $('#b11').animate({top: 180, left: vw * 0.1}, 500); 
+        $('#b22').animate({top: 180, left: vw * 0.3}, 500);
+        $('#b33').animate({top: 180, left: vw * 0.5}, 500);
+        $('#b44').animate({top: 180, left: vw * 0.7}, 500);
 
         // Hàng dưới: b55, b66, b77, b88, b99
-        $('#b55').animate({top: 160, left: vw * 0.05}, 500); // Điều chỉnh vị trí Y để tạo hàng thứ 2
-        $('#b66').animate({top: 160, left: vw * 0.25}, 500);
-        $('#b77').animate({top: 160, left: vw * 0.45}, 500);
-        $('#b88').animate({top: 160, left: vw * 0.65}, 500); 
-        $('#b99').animate({top: 160, left: vw * 0.85}, 500); 
+        $('#b55').animate({top: 240, left: vw * 0.05}, 500); // Điều chỉnh vị trí Y để tạo hàng thứ 2
+        $('#b66').animate({top: 240, left: vw * 0.25}, 500);
+        $('#b77').animate({top: 240, left: vw * 0.45}, 500);
+        $('#b88').animate({top: 240, left: vw * 0.65}, 500); 
+        $('#b99').animate({top: 240, left: vw * 0.85}, 500); 
     } else {
         // Bố cục cho màn hình lớn (1 hàng)
         $('#b11').animate({top:240, left: vw/2 - 450},500); 
